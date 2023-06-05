@@ -7,15 +7,21 @@ Plot the position of each driver at the end of each lap.
 source: https://docs.fastf1.dev/examples_gallery/plot_position_changes.html#sphx-glr-examples-gallery-plot-position-changes-py
 """
 
+import fastf1
 import fastf1.plotting
 import matplotlib.pyplot as plt
+
+cache_dir = ".cache"
+
+# Enable Cache
+fastf1.Cache.enable_cache(cache_dir)
 
 
 fastf1.plotting.setup_mpl(misc_mpl_mods=False)
 
 ##############################################################################
 # Load the session and create the plot
-session = fastf1.get_session(2023, 1, 'R')
+session = fastf1.get_session(2023, 6, 'R')
 session.load(telemetry=False, weather=False)
 
 fig, ax = plt.subplots(figsize=(8.0, 4.9))
